@@ -7,10 +7,7 @@ class Frudemy::CLI
     end
     def list_courses
         puts "Today's Free Courses"
-        puts <<-DOC.gsub /^\s*/, ''
-            1. UDEMY COURSE 1
-            2. UDEMY COURSE 2
-        DOC
+        @courses = Frudemy::Course.today
     end
     def menu
         input = nil
