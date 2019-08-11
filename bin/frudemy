@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require './lib/frudemy'
+require "bundler/setup"
+require "frudemy"
 
 Frudemy::CLI.new.call
 
