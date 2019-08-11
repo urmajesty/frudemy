@@ -10,7 +10,6 @@ class Frudemy::Course
         course_1.category = "ruby"
         course_1.clicks = clicks
         course_1.url = "https//happy.com"
-    end
 
         course_2= self.new
         course_2.name = "udemy course 2"
