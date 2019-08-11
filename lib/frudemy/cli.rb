@@ -18,7 +18,7 @@ class Frudemy::CLI
     def menu
         input = nil
         while input != "exit"
-            puts "Enter the number of the course you're interested in or type list to see the deals again, or type exit."
+            puts "Enter the number of the course you're interested in or type list to see the courses again, or type exit."
         input = gets.strip.downcase
         
         if input.to_i > 0 
