@@ -3,16 +3,16 @@ class Frudemy::Scrape
    def self.scrape_categorys
        index_page = Nokogiri::HTML(open("https://www.discudemy.com/category"))
         
-       cat_array = index_page.css = "index_page.css("a.mb5")
+       cat_array = index_page = index_page.css("a.mb5")
   
-         cat_array.each_with_index do |cat_card, index|
-#        attributes = {
-#    binding.pry
-#        }
-#   category = Frudemy::Category.new
-#   
-#
-#  
+        cat_array.each do |cat_card|
+ #       attributes = {
+binding.pry
+ #       }
+  # category = Frudemy::Category.new
+   
+
+  
     end
     end
 #

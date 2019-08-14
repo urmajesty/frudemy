@@ -5,11 +5,12 @@ class Frudemy::CLI
 #
 def start
   puts "Welcome to Frudemy"
-  Frudemy::Scraper.scrape_categorys
+  puts "Please choose the category you are interested in learning"
+  Frudemy::Scrape.scrape_categorys
 #      greeting
 #      scrape_categorys
 #      menu
-end
+
 #  
 #    def greeting
 #    puts "Welcome to the category detail App!"
@@ -18,7 +19,7 @@ end
 list_course
 end
 def list_categorys
-  Frudemy::Course all.each.with.index[1] do |category, index|
+  Frudemy::Course.all.each.with.index[1] do |category, index|
     puts #(index). #(category.title)
 
 #           
@@ -30,10 +31,12 @@ def list_categorys
           end
 #           
 #  
-#  
+def list_course
+end
+end  
 #    def scrape_categorys
 #      Frudemy::Scrape.scrape_categorys
-   end
+  # end
 #  
 #    def menu
 #      puts "Please select the number of the category you'd like to study today"
@@ -63,13 +66,13 @@ def list_categorys
 ##def sort_categorys_views
 ##      @sorted_categorys = Frudemy::Category.all.reverse
 ##    end
-    def list_category
+#    def list_course
 #     puts "Here are the top 100 categories:"
 #     @category = Frudemy.Category.today
-     @category.each.with_index(1) do |category,index|
-       puts "#{index}. #{category.title}"    # if index <= 100
-       
-   end
+#     @category.each.with_index(1) do |category,index|
+ #      puts "#{index}. #{category.title}"    # if index <= 100
+      
+#   end
 #
 #    def list_categorys
 #      puts "Here are the top 100 categorys:"
