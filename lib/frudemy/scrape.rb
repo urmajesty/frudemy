@@ -1,46 +1,44 @@
 class Frudemy::Scrape
 
-    def self.scrape_courses
-        index_page = Nokogiri::HTML(open("https://www.discudemy.com/category"))
+   def self.scrape_categorys
+       index_page = Nokogiri::HTML(open("https://www.discudemy.com/category"))
+        
+       cat_array = index_page.css = "index_page.css("a.mb5")
   
-       array_of_courses = index_page.css("a.ui.red.inverted.catbtn.mb5")
-  
-  array_of_courses[0...71].each_with_index do |course_card, index|
-        attributes = {
-    binding.pry
-        }
-   course = Frudemy::Course.new
-   
-
-  
+         cat_array.each_with_index do |cat_card, index|
+#        attributes = {
+#    binding.pry
+#        }
+#   category = Frudemy::Category.new
+#   
+#
+#  
     end
-    
-    
-        end
-
     end
-  
-#    def self.scrape_details(course_object)
-#    detail_page = Nokogiri::HTML(open(course_object.url))
-#    details = detail_page.css("div.top_detial") #array of details
-#    
-#      details.each do |detail_html|
-#         #instantiate a new detail
-#         ro = Frudemy::detail.new
-#        # ro stands for detail object
-#        # associate that detail with this course
-#        #ro.course = course_object
-#        # set any detail attributes
-#  
-#        ro.quote = detail_html.css("div.media div.media-body p").text.strip
-#  
-#        ro.author = detail_html.css("div.detail_source div.media-body a.unstyled").text
-#  
-#        ro.press = detail_html.css("div.detail_source div.media-body a.subtle").text
-#        # add this detail to course.details
-#        #course_object.details << ro
-#        course_object.add_detail(ro)
-#      end
-#  
+#
 #    end
-## end
+#  
+  def self.scrape_courses(category_object)
+#    course_page = Nokogiri::HTML(open(category_object.url))
+#   courses = course_page.css("div.top_detial") #array of courses
+#    
+#      courses.each do |course_html|
+#         #instantiate a new course
+#         ro = Frudemy::course.new
+#        # ro stands for course object
+#        # associate that course with this category
+#        #ro.category = category_object
+#        # set any course attributes
+#  
+#        ro.quote = course_html.css("div.media div.media-body p").text.strip
+#  
+#        ro.author = course_html.css("div.course_source div.media-body a.unstyled").text
+#  
+#        ro.press = course_html.css("div.course_source div.media-body a.subtle").text
+#        # add this course to category.courses
+#        #category_object.courses << ro
+#        category_object.add_course(ro)
+     end
+
+   end
+# end
