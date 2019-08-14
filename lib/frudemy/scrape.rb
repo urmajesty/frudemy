@@ -7,10 +7,10 @@ class Frudemy::Scrape
   
   array_of_courses[0...71].each_with_index do |course_card, index|
         attributes = {
-    
+    binding.pry
         }
    course = Frudemy::Course.new
-   binding.pry
+   
 
   
     end

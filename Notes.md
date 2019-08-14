@@ -27,3 +27,25 @@ course_1 = self.new
 module Frudemy
   class Error < StandardError; end
 end
+        doc = Nokogiri::HTML(open("https://www.discudemy.com/all"))
+
+        title = doc.search("a.card-header").first.text
+        category = doc.search("span.catSpan").first.text
+        url =  doc.search("a.card-header").first.attr("href")
+
+        course.category = doc.search("img.ui.avatar.image").first.attr("alt")
+              course.title = doc.search("a.card-header").first.text
+        course.category = doc.search("span.catSpan").first.text
+        course.url =  doc.search("a.card-header").attr("href")
+
+                 title: course_card.css("div.articlecourse_title a")[0].children.text ,
+ #           url: course_card.css("div.article_mcoursetitle a")[0].attributes['href'].value,
+ #           views: course_card.css('span.tMeterScore').text,
+ #           detail: course_card.css("div.details-consensus").text,
+
+
+            url = course_card.css("a.card-header").first.attributes['href'].value
+            views = course_card.css("span.catSpan").text
+            detail = course_card.css("a.card-header").text
+          
+     id = index + 1
