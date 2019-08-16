@@ -4,27 +4,39 @@ class Frudemy::Scrape
 #
       index_page = Nokogiri::HTML(open("https://www.discudemy.com/category"))
 #        
-       cat_array = index_page = index_page.css("section.segment")
+       cat_array = index_page = index_page.css("section.segment a.mb5")
 
          cat_array.each do |cat_card|
                 
-       attributes = {
+            attributes = {
     
- title: cat_card.css("a.mb5").text[0].split.join(', ')
+                title: cat_card.text.strip
 
 #category: , 
 #views: , 
 #desc:  , 
 #
-       }
- category = Frudemy::Category.new(attributes)
-
+            } 
+            category = Frudemy::Category.new(attributes)
+ 
   
     end
 
 #
    end
+
+
+   def self.scrape_course(name)
+    course_page = Nokogiri::HTML(open("https://discudemy.com/category/#{name}"))
+
+
+   end
 #  
+
+def self.scrape_course(course)
+course_page = Nokogiri::HTML(open(course.url))
+
+end
   def self.scrape_courses(category_object)
 #    course_page = Nokogiri::HTML(open(category_object.url))
 #   courses = course_page.css("div.top_detial") #array of courses
@@ -32,6 +44,7 @@ class Frudemy::Scrape
 #      courses.each do |course_html|
 #         #instantiate a new course
 #         ro = Frudemy::course.new
+    #     ro.url = course_html.css('a').attr('href').value
 #        # ro stands for course object
 #        # associate that course with this category
 #        #ro.category = category_object
@@ -47,5 +60,5 @@ class Frudemy::Scrape
 #        category_object.add_course(ro)
      end
 
-  end
+    end
 # end

@@ -19,8 +19,8 @@ list_categorys
 #list_course
 end
 def list_categorys
-  Frudemy::Category.all.each do |category|
-    puts " #{category.title}"
+  Frudemy::Category.all.each.with_index(1) do |category, index|
+    puts "#{index}. #{category.title}"
 
 #           
 #        Frudemy::Category.all.each_with_index(i) do |category, index|
