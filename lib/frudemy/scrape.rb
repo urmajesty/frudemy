@@ -1,29 +1,29 @@
 class Frudemy::Scrape
 
-   def self.scrape_categorys
-
-       index_page = Nokogiri::HTML(open("https://www.discudemy.com/category"))
-        
-       cat_array = index_page = index_page.css("a.mb5")
-  
-        cat_array.each do |cat_card|
- #       attributes = {
-binding.pry
-title:  ,
-url:  , 
-category: , 
-views: , 
-desc:  , 
-
- #       }
-  # category = Frudemy::Category.new
-   
-
-  
-    end
-    end
+    def self.scrape_categorys
 #
-#    end
+      index_page = Nokogiri::HTML(open("https://www.discudemy.com/category"))
+#        
+       cat_array = index_page = index_page.css("section.segment")
+
+         cat_array.each do |cat_card|
+                
+       attributes = {
+    
+ title: cat_card.css("a.mb5").text[0].split.join(', ')
+
+#category: , 
+#views: , 
+#desc:  , 
+#
+       }
+ category = Frudemy::Category.new(attributes)
+
+  
+    end
+
+#
+   end
 #  
   def self.scrape_courses(category_object)
 #    course_page = Nokogiri::HTML(open(category_object.url))
@@ -47,5 +47,5 @@ desc:  ,
 #        category_object.add_course(ro)
      end
 
-   end
+  end
 # end

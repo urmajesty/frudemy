@@ -15,12 +15,12 @@ def start
 #    def greeting
 #    puts "Welcome to the category detail App!"
 
-
-list_course
+list_categorys
+#list_course
 end
 def list_categorys
-  Frudemy::Course.all.each.with.index[1] do |category, index|
-    puts #(index). #(category.title)
+  Frudemy::Category.all.each do |category|
+    puts " #{category.title}"
 
 #           
 #        Frudemy::Category.all.each_with_index(i) do |category, index|
@@ -31,6 +31,7 @@ def list_categorys
           end
 #           
 #  
+
 def list_course
 end
 end  
