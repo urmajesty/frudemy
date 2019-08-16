@@ -1,7 +1,6 @@
 
 class Frudemy::Course
-#  attr_accessor :course, :views, :details, :url
+ attr_accessor :title, :views, :details, :url, :category
 
- # def initialize
-  #end
+ 
 end

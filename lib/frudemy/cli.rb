@@ -1,40 +1,43 @@
 class Frudemy::CLI
 
+  def start
+    puts "Welcome to Frudemy"
+    puts "Please choose the category you are interested in learning"
+    Frudemy::Scrape.scrape_categorys
+    set_category_roster
+  #      greeting
+  #      scrape_categorys
+  #      menu
 
-#attr_accessor :sortedcategorys
-#
-def start
-  puts "Welcome to Frudemy"
-  puts "Please choose the category you are interested in learning"
-  Frudemy::Scrape.scrape_categorys
-#      greeting
-#      scrape_categorys
-#      menu
+  #  
+  #    def greeting
+  #    puts "Welcome to the category detail App!"
 
-#  
-#    def greeting
-#    puts "Welcome to the category detail App!"
+    list_categorys
+    list_category
+  end
 
-list_categorys
-#list_course
-end
-def list_categorys
-  Frudemy::Category.all.each.with_index(1) do |category, index|
-    puts "#{index}. #{category.title}"
+  def set_category_roster
+    @roster = Frudemy::Category.all
+  end
+
+  def list_categorys
+    @roster.each.with_index(1) do |category, index|
+      puts "#{index}. #{category.title}"
 
 #           
 #        Frudemy::Category.all.each_with_index(i) do |category, index|
 #          puts "#(index). #(category.name)"
 #               @categorys.each.with_index(1) do |category, i|
 #                   puts "#{i}. #{category.title} - #{category.category} - #{category.url}"
-              end
-          end
+    end
+  end
 #           
 #  
 
-def list_course
-end
-end  
+  def list_category
+#end
+#end  
 #    def scrape_categorys
 #      Frudemy::Scrape.scrape_categorys
   # end
@@ -59,6 +62,40 @@ end
 ##        menu
 ##      end
 #    end
+#def get_course_method_in_loop_format
+    puts "Choose a number that corresponds to a course"
+    input = gets.strip
+    until input.to_i.between?(1,71) || input == "exit"
+      puts "Sorry! I didn't understand that command!"
+      input = gets.strip
+    end
+    if input != "exit"
+      index =  input.to_i - 1
+      category = @roster[index]
+      Scraper.scrape_category(category)
+      display_category(category)
+      menu
+    end
+  end
+
+  def display_category(category)
+    puts category.title
+    puts "This category has the following courses:"
+    category.courses.each |course|
+      puts course.title
+    end
+  end
+end
+
+
+
+#def display_course(course)
+#  puts "#{.title}:"
+#  puts "This course was viewed by #{course.views} of people "
+#  puts "#{course.url}"
+#  want_more_info(course)
+#  puts "Please select another course you would like more info about by choosing a number 1-71  or type 'exit' to Exit"
+#end
 #  
 ##    def sort_categorys_abc
 ##    @sorted_categorys = Frudemy::Category.all.sort_by{|category| category.title}

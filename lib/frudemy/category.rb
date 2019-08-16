@@ -1,13 +1,13 @@
 
 class Frudemy::Category
-    attr_accessor :title#, :views, :url :description
+    attr_accessor :title, :url, :details 
   
 #    def initialize
 #    end
 #  end
 
   #     class Frudemy::Category
-#        attr_accessor :title, :views, :critic, :url, :directed_by, :id
+#        attr_accessor :title, :views, :url,  
 #        attr_reader :details
 
       @@all = []    
@@ -32,12 +32,15 @@ class Frudemy::Category
           @@all
         end
 #      
-#        def add_detail(rev)
-#          @details << rev
-#          rev.category = self
- #     end
-#      
-#      
+       def add_detail(det)
+          @details << det
+          det.category = self
+     end
+      def courses
+        Course.all.select do |course|
+          course.category == self
+        end
+      end
 #      
       end   
 ##

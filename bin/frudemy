@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require_relative '../lib/frudemy.rb'
+require "frudemy"
+require_relative '../lib/frudemy/frudemy.rb'
+
 Frudemy::CLI.new.start
 
 

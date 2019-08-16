@@ -26,18 +26,24 @@ class Frudemy::Scrape
    end
 
 
-   def self.scrape_course(name)
-    course_page = Nokogiri::HTML(open("https://discudemy.com/category/#{name}"))
+   def self.scrape_course(category)
+    cat_page = Nokogiri::HTML(open("https://discudemy.com/category/#{category.title}"))
 
+    course_cards = cat_page.css('section.card')
 
+    course_cards.each do |card|
+
+        course = Course.new
+        course.name = card.css("a.card-header").text
+        course.category = category
    end
 #  
 
-def self.scrape_course(course)
-course_page = Nokogiri::HTML(open(course.url))
+#def self.scrape_course(course)
+#course_page = Nokogiri::HTML(open(course.url))
 
-end
-  def self.scrape_courses(category_object)
+#end
+ # def self.scrape_courses(category_object)
 #    course_page = Nokogiri::HTML(open(category_object.url))
 #   courses = course_page.css("div.top_detial") #array of courses
 #    
