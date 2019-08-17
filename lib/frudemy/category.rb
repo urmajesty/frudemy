@@ -36,8 +36,8 @@ class Frudemy::Category
           @details << det
           det.category = self
      end
-      def courses
-        Course.all.select do |course|
+      def course
+        Frudemy::Course.all.select do |course|
           course.category == self
         end
       end

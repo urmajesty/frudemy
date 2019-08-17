@@ -25,17 +25,57 @@ class Frudemy::CLI
     @roster.each.with_index(1) do |category, index|
       puts "#{index}. #{category.title}"
 
-#           
-#        Frudemy::Category.all.each_with_index(i) do |category, index|
-#          puts "#(index). #(category.name)"
-#               @categorys.each.with_index(1) do |category, i|
-#                   puts "#{i}. #{category.title} - #{category.category} - #{category.url}"
     end
   end
 #           
 #  
 
   def list_category
+
+    puts "Choose a number that corresponds to a course"
+    input = gets.strip
+    until input.to_i.between?(1,71) || input == "exit"
+      puts "Sorry! I didn't understand that command!"
+      input = gets.strip
+    end
+    if input != "exit"
+      index =  input.to_i - 1
+      category = @roster[index]
+     
+      Frudemy::Scrape.scrape_course(category)
+      display_category(category)
+      
+    end
+  end
+  
+
+  def display_category(category)
+    puts category.title
+    puts "This category has the following courses:"
+    #gets just gets just relavent courses
+    category.course.each do |course|
+    
+      puts course.name
+    end
+  end
+end
+
+
+
+#def display_course(course)
+#  puts "#{.title}:"
+#  puts "This course was viewed by #{course.views} of people "
+#  puts "#{course.url}"
+#  want_more_info(course)
+#  puts "Please select another course you would like more info about by choosing a number 1-71  or type 'exit' to Exit"
+#end
+#  
+#           
+#        Frudemy::Category.all.each_with_index(i) do |category, index|
+#          puts "#(index). #(category.name)"
+#               @categorys.each.with_index(1) do |category, i|
+#                   puts "#{i}. #{category.title} - #{category.category} - #{category
+
 #end
 #end  
 #    def scrape_categorys
@@ -63,40 +103,11 @@ class Frudemy::CLI
 ##      end
 #    end
 #def get_course_method_in_loop_format
-    puts "Choose a number that corresponds to a course"
-    input = gets.strip
-    until input.to_i.between?(1,71) || input == "exit"
-      puts "Sorry! I didn't understand that command!"
-      input = gets.strip
-    end
-    if input != "exit"
-      index =  input.to_i - 1
-      category = @roster[index]
-      Scraper.scrape_category(category)
-      display_category(category)
-      menu
-    end
-  end
-
-  def display_category(category)
-    puts category.title
-    puts "This category has the following courses:"
-    category.courses.each |course|
-      puts course.title
-    end
-  end
-end
 
 
 
-#def display_course(course)
-#  puts "#{.title}:"
-#  puts "This course was viewed by #{course.views} of people "
-#  puts "#{course.url}"
-#  want_more_info(course)
-#  puts "Please select another course you would like more info about by choosing a number 1-71  or type 'exit' to Exit"
-#end
-#  
+
+
 ##    def sort_categorys_abc
 ##    @sorted_categorys = Frudemy::Category.all.sort_by{|category| category.title}
 ##end
