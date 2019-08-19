@@ -23,7 +23,7 @@ class Frudemy::CLI
 
   def list_categorys
     @roster.each.with_index(1) do |category, index|
-      puts "#{index}. #{category.title}"
+      puts "#{index}. #{category.category_name}"
 
     end
   end
@@ -50,12 +50,12 @@ class Frudemy::CLI
   
 
   def display_category(category)
-    puts category.title
+    puts category.category_name
     puts "This category has the following courses:"
     #gets just gets just relavent courses
     category.course.each do |course|
-    
-      puts course.name
+    binding.pry
+      puts " #{course.name}. #{course.url}"
     end
   end
 end
@@ -63,7 +63,7 @@ end
 
 
 #def display_course(course)
-#  puts "#{.title}:"
+#  puts "#{.category_name}:"
 #  puts "This course was viewed by #{course.views} of people "
 #  puts "#{course.url}"
 #  want_more_info(course)
@@ -74,7 +74,7 @@ end
 #        Frudemy::Category.all.each_with_index(i) do |category, index|
 #          puts "#(index). #(category.name)"
 #               @categorys.each.with_index(1) do |category, i|
-#                   puts "#{i}. #{category.title} - #{category.category} - #{category
+#                   puts "#{i}. #{category.category_name} - #{category.category} - #{category
 
 #end
 #end  
@@ -109,7 +109,7 @@ end
 
 
 ##    def sort_categorys_abc
-##    @sorted_categorys = Frudemy::Category.all.sort_by{|category| category.title}
+##    @sorted_categorys = Frudemy::Category.all.sort_by{|category| category.category_name}
 ##end
 ##
 ##def sort_categorys_views
@@ -119,7 +119,7 @@ end
 #     puts "Here are the top 100 categories:"
 #     @category = Frudemy.Category.today
 #     @category.each.with_index(1) do |category,index|
- #      puts "#{index}. #{category.title}"    # if index <= 100
+ #      puts "#{index}. #{category.category_name}"    # if index <= 100
       
 #   end
 #
@@ -127,7 +127,7 @@ end
 #      puts "Here are the top 100 categorys:"
 #      @categorys = Frudemy.Category.today
 #      @categorys.each.with_index(1) do |category,index|
-#        puts "#{index}. #{category.title}"    # if index <= 100
+#        puts "#{index}. #{category.category_name}"    # if index <= 100
 #      end
 #    end
 #  
@@ -136,7 +136,7 @@ end
 #    #     index =  input.to_i - 1
 #    #     if index.between?(0,99)   #a string will be -1
 #    #       category = @sorted_categorys[index]
-#    #       puts "#{category.title}:"
+#    #       puts "#{category.category_name}:"
 #    #       puts "Rotten Tomatoes was liked by #{category.views} of people "
 #    #       puts "#{category.critic}"
 #    #       want_more_info(category)
@@ -165,7 +165,7 @@ end
 #    end
 #  
 #    def display_category(category)
-#      puts "#{category.title}:"
+#      puts "#{category.category_name}:"
 #      puts "categorys were viewed by #{category.views} of people "
 #      puts "#{category.critic}"
 #      want_more_info(category)
@@ -206,7 +206,7 @@ end
 ##    
 ##        @categorys = Frudemy::Category.today
 ##        @categorys.each.with_index(1) do |category, i|
-##            puts "#{i}. #{category.title} - #{category.category} - #{category.url}"
+##            puts "#{i}. #{category.category_name} - #{category.category} - #{category.url}"
 ##        end
 ##    end
 ##    

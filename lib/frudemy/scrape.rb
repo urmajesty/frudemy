@@ -10,7 +10,7 @@ class Frudemy::Scrape
                 
             attributes = {
     
-                title: cat_card.text.strip
+                category_name: cat_card.text.strip
 
 
 
@@ -25,7 +25,7 @@ end
 
 
    def self.scrape_course(category)
-       cat_page = Nokogiri::HTML(open("https://discudemy.com/category/#{category.title}"))
+       cat_page = Nokogiri::HTML(open("https://discudemy.com/category/#{category.category_name}"))
 
         course_cards = cat_page.css('section.card')
 
@@ -36,11 +36,17 @@ end
 
             course = Frudemy::Course.new
             course.name = card.css("a.card-header").text
+            
+            course.url = card.css("div.description").text.strip
+
             course.category = category 
+
+            
 course.save_it
 
-#         course.url = card.css("a.card-header").text
-#         course.views = card.css("a.card-header").text
+
+    #   course.url = card.css("a.card-header").text
+    #    course.views = card.css("a.card-header").text
 
         end
     end

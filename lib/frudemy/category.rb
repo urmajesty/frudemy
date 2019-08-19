@@ -1,19 +1,19 @@
 
 class Frudemy::Category
-    attr_accessor :title, :url, :details 
+    attr_accessor :category_name, :url, :details 
   
 #    def initialize
 #    end
 #  end
 
   #     class Frudemy::Category
-#        attr_accessor :title, :views, :url,  
+#        attr_accessor :category_name, :views, :url,  
 #        attr_reader :details
 
       @@all = []    
 
        def initialize(att_hash)
-                  @title = att_hash[:title]
+                  @category_name = att_hash[:category_name]
 #          #@views = att_hash[:views]
 #      
           att_hash.each do |key, value|
@@ -44,7 +44,7 @@ class Frudemy::Category
 #      
       end   
 ##
-##       attr_accessor :title, :category, :url
+##       attr_accessor :category_name, :category, :url
 ##   def self.today
 ##       
 ##       self.scraping
