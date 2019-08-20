@@ -1,6 +1,6 @@
 
 class Frudemy::Course
- attr_accessor :category_name, :views, :details, :url, :category, :name
+ attr_accessor :category_name, :description, :course_name, :url, :category, :date_added, :course
 
     @@all = []
 

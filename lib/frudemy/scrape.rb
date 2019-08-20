@@ -25,7 +25,7 @@ end
 
 
    def self.scrape_course(category)
-       cat_page = Nokogiri::HTML(open("https://discudemy.com/category/#{category.category_name}"))
+    doc = cat_page = Nokogiri::HTML(open("https://discudemy.com/category/#{category.category_name}"))
 
         course_cards = cat_page.css('section.card')
 
@@ -34,16 +34,21 @@ end
 
 
 
-            course = Frudemy::Course.new
-            course.name = card.css("a.card-header").text
             
-            course.url = card.css("div.description").text.strip
+            course = Frudemy::Course.new
+            course.course_name = card.css("a.card-header").text
+            course.url = doc.search("a.card-header").first.attr("href")
+            course.date_added = card.css("div.label").text
+            course.description = card.css("div.description").text.strip.chop
+        
 
             course.category = category 
-
+        
+            
+        
             
 course.save_it
-
+    
 
     #   course.url = card.css("a.card-header").text
     #    course.views = card.css("a.card-header").text
