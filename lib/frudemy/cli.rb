@@ -35,10 +35,15 @@ class Frudemy::CLI
     if input != "exit"
       index =  input.to_i - 1
       category = @roster[index]
-     
-      Frudemy::Scrape.scrape_courses(category)
-      display_courses(category)
+      if category.course == [] 
+        Frudemy::Scrape.scrape_courses(category)
+        display_courses(category)
+      else
+        display_courses(category)
       
+      
+      
+      end  
     end
   end
   
