@@ -1,30 +1,30 @@
 class Frudemy::CLI
 
   def start
-    puts "Welcome to Frudemy"
+    puts "Welcome to Frudemy!!!"
     puts "Please choose the category you are interested in learning"
-    Frudemy::Scrape.scrape_categorys
+    Frudemy::Scrape.scrape_categories
     set_category_roster
  
-    list_categorys
-    list_category
+    list_categories
+    choose_category
   end
 
   def set_category_roster
     @roster = Frudemy::Category.all
   end
 
-  def list_categorys
+  def list_categories
     @roster.each.with_index(1) do |category, index|
       puts "#{index}. #{category.category_name}"
       puts 
 
     end
   end
-#           
-#  
+          
 
-  def list_category
+
+  def choose_category
 
     puts "Choose a number that corresponds to a course"
     input = gets.strip
@@ -36,20 +36,22 @@ class Frudemy::CLI
       index =  input.to_i - 1
       category = @roster[index]
      
-      Frudemy::Scrape.scrape_course(category)
-      display_category(category)
+      Frudemy::Scrape.scrape_courses(category)
+      display_courses(category)
       
     end
   end
   
 
-  def display_category(category)
+  def display_courses(category)
+    
     puts category.category_name
+
     puts "This category has the following courses:"
     #gets just gets just relavent courses
     category.course.each do |course|
     
-      puts "\n\nName: #{course.course_name}. \nDescription: #{course.description}. \nDate_added: #{course.date_added}. \nURL: #{course.url}"
+      puts "\n\nName: #{course.course_name}. \nDate_added: #{course.date_added} \nDescription: #{course.description}. \nURL: #{course.url}"
     end
   end
 end

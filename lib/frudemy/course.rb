@@ -1,18 +1,14 @@
 
 class Frudemy::Course
- attr_accessor :category_name, :description, :course_name, :url, :category, :date_added, :course
+    attr_accessor :category_name, :description, :course_name, :url, :category, :date_added, :course
 
-    @@all = []
+        @@all = []
 
-def self.all
-    @@all 
-end
+    def self.all
+        @@all 
+    end
 
-def save_it
-    @@all  << self
-end
-
-
-
- 
+    def save_it
+        @@all  << self
+    end
 end
