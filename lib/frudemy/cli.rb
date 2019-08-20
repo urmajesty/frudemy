@@ -37,13 +37,13 @@ class Frudemy::CLI
       category = @roster[index]
       if category.course == [] 
         Frudemy::Scrape.scrape_courses(category)
+      end
         display_courses(category)
-      else
-        display_courses(category)
+ 
       
       
       
-      end  
+      
     end
   end
   
