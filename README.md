@@ -2,7 +2,8 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/frudemy`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
+Frudemy is a CLI data scraper used to scrape 100% free Udemy courses from a 3rd party website.  T
+he URL is a link to a 3rd party website which connects you with Udemy and inputs the 100% off coupon code (if applicable) for you.
 
 ## Installation
 
@@ -22,7 +23,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1.  Run the program by typing: ruby bin/frudemy.
+
+2.  Select a category by typing in it's corresponding number.
+   
+3.  Find the course that you want, right click on the URL and go to the website, or...
+   
+4.  Go back to the list of categories by pressing "C", or... 
+   
+5.  Exit by pressing "E"
 
 ## Development
 
@@ -40,4 +49,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Frudemy project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<github username>/frudemy/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Frudemy project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/<urmajesty>/frudemy/blob/master/CODE_OF_CONDUCT.md).
