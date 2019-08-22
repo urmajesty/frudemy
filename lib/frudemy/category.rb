@@ -7,9 +7,9 @@
       
 
     def initialize(att_hash)
-      @category_name = att_hash[:category_name]
+    #  @category_name = att_hash[:category_name]
       att_hash.each do |key, value|
-            self.send("#{key}=", value)
+           self.send("#{key}=", value)
     end
 
 
@@ -19,7 +19,7 @@
      
     def save
       @@all << self
-      self
+     # self
     end
 
       
